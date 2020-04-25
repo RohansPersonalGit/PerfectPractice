@@ -11,7 +11,6 @@ import Foundation
 class PerfectStrategyClient {
     let dealerUpards = [2,3,4,5,6,7,8,9,10,1]
     let hardTotals = [8,9,10,11,12,13,14,15,16,17]
-    var hardTotalStrateChart = [[turnPosibbilities]]()
     // first row is ilike a header row repping dealer upcard
     //first number of eevery row after that repsresents twhat your card is
     let headerRow = 0
@@ -57,39 +56,21 @@ class PerfectStrategyClient {
     [10,10,2,2,2,2,2,2,2,2,2,2]]
 
     
-    func setStaysForHardTotals() {
-        var count = 0
-        while count < dealerUpards.count{
-            self.hardTotalStrateChart[17-8][count] = turnPosibbilities.stay
-            count+=1
-        }
-        count = 13-8
-        while count < (hardTotals.count-1){
-            var xCount = 0
-            while(xCount<(6-2)){
-                hardTotalStrateChart[count][xCount] = turnPosibbilities.stay
-                xCount+=1
-            }
-        }
-        hardTotalStrateChart[(12-8)][2] = turnPosibbilities.stay
-        hardTotalStrateChart[(12-8)][3] = turnPosibbilities.stay
-        hardTotalStrateChart[(12-8)][4] = turnPosibbilities.stay
-    }
-    
-    func getPerfectAction(code: Int)-> turnPosibbilities{
+
+    func getPerfectAction(code: Int)-> turnPosibilities{
         switch code {
         case 1:
-            return turnPosibbilities.hit
+            return turnPosibilities.hit
         case 2:
-        return turnPosibbilities.stay
+        return turnPosibilities.stay
             case 3:
-            return turnPosibbilities.split
+            return turnPosibilities.split
             case 4:
-            return turnPosibbilities.doubleIfPossibleOrHit
+            return turnPosibilities.doubleIfPossibleOrHit
             case 5:
-                return turnPosibbilities.dobuleifPossibleOrStand
+                return turnPosibilities.doubleIfPossibleOrStand
         default:
-            return turnPosibbilities.stay
+            return turnPosibilities.stay
     }
     
 }

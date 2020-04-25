@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9E35D1E1245159D7004B8C1E /* Dealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E35D1E0245159D7004B8C1E /* Dealer.swift */; };
 		9E35D1E32451638D004B8C1E /* PerfectStrategyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E35D1E22451638D004B8C1E /* PerfectStrategyModel.swift */; };
 		9E35D1E524517DD2004B8C1E /* Poppins-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E35D1E424517DD2004B8C1E /* Poppins-SemiBoldItalic.ttf */; };
 		9E35D1E82451820D004B8C1E /* PlayingCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E35D1E72451820D004B8C1E /* PlayingCardView.swift */; };
+		9E3C672B24523FB300494658 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3C672A24523FB300494658 /* Player.swift */; };
+		9E3C672D24524B8200494658 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3C672C24524B8200494658 /* Game.swift */; };
+		9E3C672F2452505000494658 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3C672E2452505000494658 /* PlayerView.swift */; };
 		9E63D435245137DA000434D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E63D434245137DA000434D6 /* AppDelegate.swift */; };
 		9E63D437245137DA000434D6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E63D436245137DA000434D6 /* SceneDelegate.swift */; };
 		9E63D439245137DA000434D6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E63D438245137DA000434D6 /* ContentView.swift */; };
@@ -18,14 +20,26 @@
 		9E63D43E245137DB000434D6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E63D43D245137DB000434D6 /* Preview Assets.xcassets */; };
 		9E63D441245137DB000434D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E63D43F245137DB000434D6 /* LaunchScreen.storyboard */; };
 		9E63D44A245137FC000434D6 /* PlayingDeckModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E63D449245137FC000434D6 /* PlayingDeckModel.swift */; };
-		9E63D44C245139D7000434D6 /* PlayingHand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E63D44B245139D7000434D6 /* PlayingHand.swift */; };
+		9ED58A0424525E3200B19ED4 /* PerfectPracticeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED58A0324525E3200B19ED4 /* PerfectPracticeTests.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		9ED58A0624525E3200B19ED4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9E63D429245137DA000434D6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9E63D430245137DA000434D6;
+			remoteInfo = PerfectPractice;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		9E35D1E0245159D7004B8C1E /* Dealer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dealer.swift; sourceTree = "<group>"; };
 		9E35D1E22451638D004B8C1E /* PerfectStrategyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfectStrategyModel.swift; sourceTree = "<group>"; };
 		9E35D1E424517DD2004B8C1E /* Poppins-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		9E35D1E72451820D004B8C1E /* PlayingCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingCardView.swift; sourceTree = "<group>"; };
+		9E3C672A24523FB300494658 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		9E3C672C24524B8200494658 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		9E3C672E2452505000494658 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		9E63D431245137DA000434D6 /* PerfectPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PerfectPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E63D434245137DA000434D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E63D436245137DA000434D6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,11 +49,20 @@
 		9E63D440245137DB000434D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9E63D442245137DB000434D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9E63D449245137FC000434D6 /* PlayingDeckModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingDeckModel.swift; sourceTree = "<group>"; };
-		9E63D44B245139D7000434D6 /* PlayingHand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingHand.swift; sourceTree = "<group>"; };
+		9ED58A0124525E3200B19ED4 /* PerfectPracticeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PerfectPracticeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9ED58A0324525E3200B19ED4 /* PerfectPracticeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfectPracticeTests.swift; sourceTree = "<group>"; };
+		9ED58A0524525E3200B19ED4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		9E63D42E245137DA000434D6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9ED589FE24525E3200B19ED4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -54,6 +77,7 @@
 			children = (
 				9E63D438245137DA000434D6 /* ContentView.swift */,
 				9E35D1E72451820D004B8C1E /* PlayingCardView.swift */,
+				9E3C672E2452505000494658 /* PlayerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -62,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				9E63D433245137DA000434D6 /* PerfectPractice */,
+				9ED58A0224525E3200B19ED4 /* PerfectPracticeTests */,
 				9E63D432245137DA000434D6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -70,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				9E63D431245137DA000434D6 /* PerfectPractice.app */,
+				9ED58A0124525E3200B19ED4 /* PerfectPracticeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -102,11 +128,20 @@
 			isa = PBXGroup;
 			children = (
 				9E63D449245137FC000434D6 /* PlayingDeckModel.swift */,
-				9E63D44B245139D7000434D6 /* PlayingHand.swift */,
-				9E35D1E0245159D7004B8C1E /* Dealer.swift */,
 				9E35D1E22451638D004B8C1E /* PerfectStrategyModel.swift */,
+				9E3C672A24523FB300494658 /* Player.swift */,
+				9E3C672C24524B8200494658 /* Game.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		9ED58A0224525E3200B19ED4 /* PerfectPracticeTests */ = {
+			isa = PBXGroup;
+			children = (
+				9ED58A0324525E3200B19ED4 /* PerfectPracticeTests.swift */,
+				9ED58A0524525E3200B19ED4 /* Info.plist */,
+			);
+			path = PerfectPracticeTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -129,6 +164,24 @@
 			productReference = 9E63D431245137DA000434D6 /* PerfectPractice.app */;
 			productType = "com.apple.product-type.application";
 		};
+		9ED58A0024525E3200B19ED4 /* PerfectPracticeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9ED58A0A24525E3200B19ED4 /* Build configuration list for PBXNativeTarget "PerfectPracticeTests" */;
+			buildPhases = (
+				9ED589FD24525E3200B19ED4 /* Sources */,
+				9ED589FE24525E3200B19ED4 /* Frameworks */,
+				9ED589FF24525E3200B19ED4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9ED58A0724525E3200B19ED4 /* PBXTargetDependency */,
+			);
+			name = PerfectPracticeTests;
+			productName = PerfectPracticeTests;
+			productReference = 9ED58A0124525E3200B19ED4 /* PerfectPracticeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -141,6 +194,10 @@
 				TargetAttributes = {
 					9E63D430245137DA000434D6 = {
 						CreatedOnToolsVersion = 11.4.1;
+					};
+					9ED58A0024525E3200B19ED4 = {
+						CreatedOnToolsVersion = 11.4.1;
+						TestTargetID = 9E63D430245137DA000434D6;
 					};
 				};
 			};
@@ -158,6 +215,7 @@
 			projectRoot = "";
 			targets = (
 				9E63D430245137DA000434D6 /* PerfectPractice */,
+				9ED58A0024525E3200B19ED4 /* PerfectPracticeTests */,
 			);
 		};
 /* End PBXProject section */
@@ -174,6 +232,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9ED589FF24525E3200B19ED4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -182,17 +247,34 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E63D435245137DA000434D6 /* AppDelegate.swift in Sources */,
+				9E3C672D24524B8200494658 /* Game.swift in Sources */,
 				9E35D1E82451820D004B8C1E /* PlayingCardView.swift in Sources */,
+				9E3C672F2452505000494658 /* PlayerView.swift in Sources */,
 				9E63D44A245137FC000434D6 /* PlayingDeckModel.swift in Sources */,
-				9E35D1E1245159D7004B8C1E /* Dealer.swift in Sources */,
+				9E3C672B24523FB300494658 /* Player.swift in Sources */,
 				9E35D1E32451638D004B8C1E /* PerfectStrategyModel.swift in Sources */,
 				9E63D437245137DA000434D6 /* SceneDelegate.swift in Sources */,
-				9E63D44C245139D7000434D6 /* PlayingHand.swift in Sources */,
 				9E63D439245137DA000434D6 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9ED589FD24525E3200B19ED4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9ED58A0424525E3200B19ED4 /* PerfectPracticeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9ED58A0724525E3200B19ED4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9E63D430245137DA000434D6 /* PerfectPractice */;
+			targetProxy = 9ED58A0624525E3200B19ED4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		9E63D43F245137DB000434D6 /* LaunchScreen.storyboard */ = {
@@ -360,6 +442,46 @@
 			};
 			name = Release;
 		};
+		9ED58A0824525E3200B19ED4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RLCS96XH4L;
+				INFOPLIST_FILE = PerfectPracticeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = rofadez.PerfectPracticeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PerfectPractice.app/PerfectPractice";
+			};
+			name = Debug;
+		};
+		9ED58A0924525E3200B19ED4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RLCS96XH4L;
+				INFOPLIST_FILE = PerfectPracticeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = rofadez.PerfectPracticeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PerfectPractice.app/PerfectPractice";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -377,6 +499,15 @@
 			buildConfigurations = (
 				9E63D446245137DB000434D6 /* Debug */,
 				9E63D447245137DB000434D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9ED58A0A24525E3200B19ED4 /* Build configuration list for PBXNativeTarget "PerfectPracticeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9ED58A0824525E3200B19ED4 /* Debug */,
+				9ED58A0924525E3200B19ED4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

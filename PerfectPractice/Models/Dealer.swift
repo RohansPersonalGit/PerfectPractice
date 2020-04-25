@@ -8,13 +8,12 @@
 
 import Foundation
 
-class Dealer {
-    var players = [PlayingHand]()
+class Dealer: Player {
     var cardBank = [PlayingCard]()
     var currentCardLocation = 0
     var currPlayer = 0
-    var deaderHand = PlayingHand(id: "Dealer")
-    init() {
+    init(game: Game?) {
+        super.init(id: "Dealer", cardsDealt: nil, game: game!)
         var count = 0
         while count<4{
             cardBank.append(contentsOf: PlayingDeck.init().getShuffledDeck())
@@ -23,44 +22,39 @@ class Dealer {
         cardBank = cardBank.shuffled()
 
     }
+    
     func dealCard() ->  PlayingCard {
         let card = cardBank[currentCardLocation]
         currentCardLocation += 1
         return card
     }
     
-    func dealPlayers(){
-        var count = 0
-        while count<4 {
-            var player = PlayingHand(id: String(count), cardsDealt: [dealCard()])
-            player.cardsDealt.append(dealCard())
-            players.append(player)
-            count += 1
-        }
-        self.deaderHand.cardsDealt.append(self.dealCard())
-        self.deaderHand.cardsDealt.append(self.dealCard())
+//    Returns dealer as Player
+    func asPlayer()-> Player{
+        return Player(id: "dealer", cardsDealt: self.cardsDealt, game: self.game)
     }
+    
     
     func handValue(cards: [PlayingCard])-> [Int]{
         var  valueSoFar = 0
         var retValues = [Int]()
         var count = 0
         for each in cards{
-            if each.rank > 1{
-                valueSoFar = valueSoFar + each.rank
+            if each.rankRaw > 1{
+                valueSoFar = valueSoFar + each.rankRaw
                 if valueSoFar > 21{
                     return retValues
                 }
             }
             else{
                 if (valueSoFar + 11) > 21 {
-                    valueSoFar = valueSoFar + each.rank
+                    valueSoFar = valueSoFar + each.rankRaw
                 }
                 else {
                     if (count + 1) < cards.count {
                         var newCount = count + 1
                         var cardArray = [PlayingCard]()
-                        let pcard = PlayingCard(suit: each.suit, rank: 11)
+                        let pcard = PlayingCard( suit: each.suit, rank: Rank.ace)
                         cardArray.append(pcard)
                         while(newCount<cards.count){
                             cardArray.append(cards[newCount])
@@ -70,8 +64,8 @@ class Dealer {
                         retValues.append(contentsOf: newCardArray)
                     }
                     else {
-                        retValues.append(each.rank + valueSoFar)
-                        retValues.append(each.rank + 11)
+                        retValues.append(each.rankRaw + valueSoFar)
+                        retValues.append(each.rankRaw + 11)
                     }
                 }
             }
@@ -79,4 +73,10 @@ class Dealer {
         }
         return retValues
     }
+}
+
+protocol StakeHolder {
+    var id: String {get set}
+    var cardsDealt: [[PlayingCard]] {get set}
+    var currentHand: Int {get set}
 }
