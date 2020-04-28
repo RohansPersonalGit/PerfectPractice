@@ -17,7 +17,7 @@ struct ContentView: View {
            if gameIsStarted { Rectangle().foregroundColor(Color.init(red: 0.21, green: 0.40, blue: 0.30, opacity: 1.00)).edgesIgnoringSafeArea(.all)
             VStack {
                 Spacer()
-                PlayerView().environmentObject((self.game.dealer)).offset(x: 0, y: 30)
+//                PlayerView().environmentObject((self.game.dealer)).offset(x: 0, y: 30)
                 Spacer()
                 HStack {PlayerView().environmentObject(self.game.players[3]).padding(.all).rotationEffect(Angle.init(degrees: 90)).scaledToFit().scaleEffect(0.7)
                     Spacer().frame(minWidth: 10, maxWidth: (.infinity))
@@ -54,7 +54,7 @@ struct ContentView_Previews: PreviewProvider {
 func setUpGame()-> Game {
     let game = Game.init()
 
-    var players = [Player(id: "Rohan", cardsDealt: nil,game: game, isRobot: false ), Player(id: "Rajesh", cardsDealt: nil,game: game, isRobot: false ), Player(id: "Geeta", cardsDealt: nil,game: game, isRobot: false ), Player(id: "Ria", cardsDealt: nil,game: game, isRobot: false )]
+    var players = [Player(id: "Rohan", hands: nil,game: game, isRobot: false ), Player(id: "Rajesh", hands: nil,game: game, isRobot: false ), Player(id: "Geeta", hands: nil,game: game, isRobot: false ), Player(id: "Ria", hands: nil,game: game, isRobot: false )]
     game.startGame()
     return game
 }

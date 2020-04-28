@@ -14,7 +14,7 @@ class PerfectPracticeTests: XCTestCase {
     override func setUp() {
         super.setUp()
         let game = Game.init()
-        _ = [Player(id: "Rohan", cardsDealt: nil, game: game, isRobot: false ), Player(id: "Rajesh", cardsDealt: nil, game: game, isRobot: false ), Player(id: "Geeta", cardsDealt: nil, game: game, isRobot: false ), Player(id: "Ria", cardsDealt: nil, game: game, isRobot: false )]
+        _ = [Player(id: "Rohan", hands: nil, game: game, isRobot: true ), Player(id: "Rajesh", hands: nil, game: game, isRobot: true ), Player(id: "Geeta", hands: nil, game: game, isRobot: true ), Player(id: "Ria", hands: nil, game: game, isRobot: true )]
         game.startGame()
     }
     override func setUpWithError() throws {
@@ -33,14 +33,6 @@ class PerfectPracticeTests: XCTestCase {
 
     func testPlayersSetUp() throws {
       // 1. given
-        for each in game.players {
-            XCTAssertEqual(each.cardsDealt.count, 1, "1 hadn per player")
-            XCTAssertEqual(each.cardsDealt[0].count, 2, "2 cards per player")
-            print(each.cardsDealt[0][0].description)
-        }
-        XCTAssertEqual(game.dealer.cardsDealt.count, 1, "1 hadn per player")
-        XCTAssertEqual(game.dealer.cardsDealt[0].count, 2, "2 cards per player")
-
     }
     
     func testCardValues() throws {
@@ -48,14 +40,11 @@ class PerfectPracticeTests: XCTestCase {
         let card2 = PlayingCard(suit: Suit.club, rank: Rank.queen)
         XCTAssertEqual(card.rankRaw, 1)
         XCTAssertEqual(card2.rankRaw, 10)
+        
     }
     
     func testHitMe()  throws {
-        game.servicePlayer(playerNumber: 0, response: turnPosibilities.hit, playerHandIndex: 0)
-        for each in game.players[0].getHand(){
-            XCTAssertNotNil(each, "card exists")
-                print(each.description)
-        }
+
     }
     func testPerformanceExample() throws {
         // This is an example of a performance test case.

@@ -13,10 +13,10 @@ struct PlayerView: View {
     var body: some View {
         HStack {
             VStack(alignment: .trailing, spacing: 0){
-                ForEach(0..<self.player.cardsDealt.count) {
+                ForEach(0..<self.player.hands.count) {
                     index in ZStack {
                         Spacer()
-                        ForEach(0..<self.player.getHandByIndex(index: index).count, id: \.self){
+                        ForEach(0..<self.player.getHandByIndex(index: index).cards.count, id: \.self){
                             card in
                             VStack(alignment: .leading, spacing: 2) {PlayingCardView(rank: self.player.getCardByHandCardIndex(handIndex: index,cardIndex: card).rankRaw, suit: self.player.getCardByHandCardIndex(handIndex: index,cardIndex: card).suit ).rotationEffect(Angle.init(degrees: Double(card*10)))
                             .offset(x: multipe(index: card, offset: 15), y: multipe(index: card, offset: 40))
@@ -36,7 +36,7 @@ struct PlayerView: View {
                 self.player.requestCard()
             }, label: {
                 Text("Hit ME")
-            }).offset(x: CGFloat(player.cardsDealt[0].count*10), y: 0)
+            }).offset(x: CGFloat(player.hands[0].cards.count*10), y: 0)
         }
     }
 }
@@ -52,4 +52,4 @@ struct PlayerView_Previews: PreviewProvider {
     }
 }
 #endif
-var player = Player(id: "Player 1", cardsDealt: [[PlayingCard(suit: Suit.diamond, rank: Rank.jack), PlayingCard(suit: Suit.spade, rank: Rank.ace)]], game: Game.init(), isRobot: false )
+var player = Player.init(id: "Player1", hands: [Hand.init()], game: Game.init(), isRobot: true)

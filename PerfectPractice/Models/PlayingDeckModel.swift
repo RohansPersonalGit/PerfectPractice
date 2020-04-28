@@ -41,14 +41,16 @@ struct PlayingCard: Identifiable {
     var description: String {
         return "\(type(of: self))(suit: \(suit), rank: \(rank), id: \(id))"
     }
-}
-func getCardValue(rank: Rank)-> Int{
-    if rank==Rank.jack || rank==Rank.queen || rank==Rank.king{
-        return 10
+    
+    func getCardValue(rank: Rank)-> Int{
+        if rank==Rank.jack || rank==Rank.queen || rank==Rank.king{
+            return 10
+        }
+        else{
+            return rank.rawValue
+        }
     }
-    else{
-        return rank.rawValue
-    }
 }
+
 
 

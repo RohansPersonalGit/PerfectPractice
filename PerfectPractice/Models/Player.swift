@@ -9,54 +9,100 @@
 import Foundation
 
 enum turnPosibilities{
-    case hit, stay, split, doubleIfPossibleOrHit, doubleIfPossibleOrStand
+    case hit, stay, split, doubleIfPossibleOrHit, doubleIfPossibleOrStand, perfectStrategy
+}
+
+struct Hand: Identifiable {
+    var id = UUID()
+    
+    var cards=[PlayingCard]()
+    var isBust: Bool {
+        get {
+            return valueSoFar > 21
+        }
+    }
+    var hasAce = false
+    var valueSoFar = 0
+    mutating func addCard(card: PlayingCard){
+        self.cards.append(card)
+        self.valueSoFar += card.rankRaw
+        if card.rank == Rank.ace {
+            hasAce = true
+        }
+    }
+    
+    func getCard(cardIndex: Int)-> PlayingCard{
+        return cards[cardIndex]
+    }
 }
 
 class Player: ObservableObject {
     let id:String
-    @Published var cardsDealt = [[PlayingCard]]()
+     var hands = [Hand]()
     var currentHand = 0
+    var currHandValue = 0
     var game: Game
     var turnNumber: Int = -1
     var isRobot = true
-    
-    init(id: String, cardsDealt: [[PlayingCard]]?, game: Game, isRobot: Bool?) {
+    var isBust = false
+    init(id: String, hands: [Hand]?, game: Game, isRobot: Bool?) {
         self.id = id
-        if let cards = cardsDealt {
-            self.cardsDealt = cards
-        }
         self.game = game
         self.game.enrollPlayer(player: self)
         if let automate = isRobot {
             self.isRobot = automate
         }
+        if let cards = hands {
+            self.hands.append(contentsOf: cards)
+        }
+    }
+    func decideStrategy(handIndex: Int)-> turnPosibilities{
+        //when you return a stay make sure you ++ your curr hand value
+        if(self.isRobot){
+            return turnPosibilities.perfectStrategy
+        }else {
+            return turnPosibilities.hit
+        }
     }
     
+
     func dealtCard(card: PlayingCard){
-        self.cardsDealt[self.currentHand].append(card)
+        self.hands[currentHand].addCard(card: card)
+        if self.hands[currentHand].isBust {
+            if (hands.count == 1){
+                self.isBust = true
+            }
+            else {
+                 currentHand += 1
+            }
+        }
     }
     
     func dealHand(hand: [PlayingCard]){
-        cardsDealt.append(hand)
+        var handToAdd = Hand.init()
+        self.hands.append(handToAdd)
+        for each in hand{
+            self.dealtCard(card: each)
+        }
     }
-    func getHand() -> [PlayingCard]{
-        return cardsDealt[currentHand]
+    func getHand() -> Hand{
+        return self.hands[currentHand]
     }
     
-    func getHandByIndex(index: Int) -> [PlayingCard]{
-        return cardsDealt[index]
+    func getHandByIndex(index: Int) -> Hand{
+        return self.hands[index]
     }
     
-    func getHands() -> [[PlayingCard]] {
-        return cardsDealt
+    func getHands() -> [Hand]{
+        return hands
     }
     
     func requestCard(){
-        self.game.serviceMe(response: turnPosibilities.hit, player: self.turnNumber)
+        self.game.handlePlayerInput(response: turnPosibilities.hit, player: self)
     }
     
     func getCardByHandCardIndex(handIndex: Int, cardIndex: Int) -> PlayingCard{
-        return cardsDealt[handIndex][cardIndex]
+        return hands[handIndex].cards[cardIndex]
     }
 }
 

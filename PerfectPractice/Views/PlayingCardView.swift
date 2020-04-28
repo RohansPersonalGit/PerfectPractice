@@ -20,9 +20,10 @@ struct PlayingCardView: View {
     }
 }
 
-
+#if DEBUG
 struct PlayingCardView_Previews: PreviewProvider {
     static var previews: some View {
         PlayingCardView(rank: Rank.ace.rawValue, suit: Suit.spade)
     }
 }
+#endif

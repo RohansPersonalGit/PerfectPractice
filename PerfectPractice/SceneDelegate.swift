@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Create the SwiftUI view that provides the window contents.
         let game = Game.init()
-        _ = [Player(id: "Rohan", cardsDealt: nil, game: game, isRobot: false ), Player(id: "Rajesh", cardsDealt: nil, game: game, isRobot: false ), Player(id: "Geeta", cardsDealt: nil, game: game, isRobot: false ), Player(id: "Ria", cardsDealt: nil, game: game, isRobot: false )]
+_ = [Player(id: "Rohan", hands: nil, game: game, isRobot: true ), Player(id: "Rajesh", hands: nil, game: game, isRobot: true ), Player(id: "Geeta", hands: nil, game: game, isRobot: true ), Player(id: "Ria", hands: nil, game: game, isRobot: true )]
         game.startGame()
         let contentView = ContentView().environmentObject(game)
 
