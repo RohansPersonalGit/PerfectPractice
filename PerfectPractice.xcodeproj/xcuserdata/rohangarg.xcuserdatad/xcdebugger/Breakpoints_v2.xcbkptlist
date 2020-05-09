@@ -23,22 +23,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "1BEE0979-A1E1-450F-B3EB-0767513B6933"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PerfectPractice/Models/Player.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
-            landmarkName = "requestCard()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "6D980AD5-3934-4E63-9569-904F21926DD7"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -119,22 +103,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "9F8669EC-623F-462C-A796-C640CD4A6C4E"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PerfectPractice/Models/Player.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
-            landmarkName = "dealtCard(card:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "FD250710-FF19-44C5-8AEC-0828A7789A9B"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -151,22 +119,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "8E68C5BC-BA3F-470C-A809-BBB306F2C295"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PerfectPractice/Models/Player.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
-            landmarkName = "dealHand(hand:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "FF262A22-60BF-4104-AD14-757B9919E161"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -174,8 +126,8 @@
             filePath = "PerfectPractice/Views/GameView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
             landmarkName = "unknown"
             landmarkType = "0">
          </BreakpointContent>
@@ -238,8 +190,8 @@
             filePath = "PerfectPractice/Models/Player.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
             landmarkName = "dealtCard(card:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -254,8 +206,8 @@
             filePath = "PerfectPractice/Views/GameView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
             landmarkName = "unknown"
             landmarkType = "0">
          </BreakpointContent>
@@ -270,118 +222,10 @@
             filePath = "PerfectPractice/Models/Player.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
             landmarkName = "dealHand(hand:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "C304D7B7-1517-4D8D-8DFD-84F5EDA4F633"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PerfectPractice/Models/Player.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "Player"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  uuid = "C304D7B7-1517-4D8D-8DFD-84F5EDA4F633 - 3ab3802c7f8a0ebd"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "property wrapper backing initializer of PerfectPractice.Player.hands : Swift.Array&lt;PerfectPractice.Hand&gt;"
-                  moduleName = "PerfectPractice"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rohangarg/Developer/PerfectPractice/PerfectPractice/Models/Player.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "41"
-                  endingLineNumber = "41"
-                  offsetFromSymbolStart = "28">
-               </Location>
-               <Location
-                  uuid = "C304D7B7-1517-4D8D-8DFD-84F5EDA4F633 - f3cdfc383d0098ce"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "PerfectPractice.Player.hands.getter : Swift.Array&lt;PerfectPractice.Hand&gt;"
-                  moduleName = "PerfectPractice"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rohangarg/Developer/PerfectPractice/PerfectPractice/Models/Player.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "41"
-                  endingLineNumber = "41"
-                  offsetFromSymbolStart = "95">
-               </Location>
-               <Location
-                  uuid = "C304D7B7-1517-4D8D-8DFD-84F5EDA4F633 - eda2bcb50da86afa"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "PerfectPractice.Player.hands.setter : Swift.Array&lt;PerfectPractice.Hand&gt;"
-                  moduleName = "PerfectPractice"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rohangarg/Developer/PerfectPractice/PerfectPractice/Models/Player.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "41"
-                  endingLineNumber = "41"
-                  offsetFromSymbolStart = "229">
-               </Location>
-               <Location
-                  uuid = "C304D7B7-1517-4D8D-8DFD-84F5EDA4F633 - 3075940ceb4b8c4b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "PerfectPractice.Player.hands.modify : Swift.Array&lt;PerfectPractice.Hand&gt;"
-                  moduleName = "PerfectPractice"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rohangarg/Developer/PerfectPractice/PerfectPractice/Models/Player.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "58">
-               </Location>
-               <Location
-                  uuid = "C304D7B7-1517-4D8D-8DFD-84F5EDA4F633 - bad3f3ed9a7c4ccb"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "PerfectPractice.Player.hands.modify : Swift.Array&lt;PerfectPractice.Hand&gt; with unmangled suffix &quot;.resume.0&quot;"
-                  moduleName = "PerfectPractice"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rohangarg/Developer/PerfectPractice/PerfectPractice/Models/Player.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "41"
-                  endingLineNumber = "41"
-                  offsetFromSymbolStart = "40">
-               </Location>
-               <Location
-                  uuid = "C304D7B7-1517-4D8D-8DFD-84F5EDA4F633 - 54bd16ba29cf2f43"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "PerfectPractice.Player.$hands.getter : Combine.Published&lt;Swift.Array&lt;PerfectPractice.Hand&gt;&gt;.Publisher"
-                  moduleName = "PerfectPractice"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rohangarg/Developer/PerfectPractice/PerfectPractice/Models/Player.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "41"
-                  endingLineNumber = "41"
-                  offsetFromSymbolStart = "22">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -665,6 +509,134 @@
             startingLineNumber = "53"
             endingLineNumber = "53"
             landmarkName = "getResponse(dealerUpcard:playerCards:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3F757D9C-50EE-4BAF-9BE3-800BF7180AC1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PerfectPractice/Models/Player.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "requestCard()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "094C46D3-E1C3-416D-B9AD-FA9E556F778D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PerfectPractice/Models/Player.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "dealtCard(card:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "44CD3982-FF77-4CEA-A582-0472C58CE78B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PerfectPractice/Models/GameViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "resetGame()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6C3E79C3-D32E-49C9-8015-6293243EAEB7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PerfectPractice/Models/GameViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "resetGame()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2A6940AE-741D-4A39-81E0-0FE14EDF64ED"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PerfectPractice/Models/GameViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "startGame()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "859A72FE-7F6C-4B5B-B731-F31F5917F8C3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PerfectPractice/Models/GameViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "recontinueGame()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7C7FAAE9-5A01-4989-8BC5-9EA0D569F628"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PerfectPractice/Models/GameViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "startGame()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DD551B8E-EC3A-4419-ADC1-939AA398B6F4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PerfectPractice/Models/GameViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "dealCard()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

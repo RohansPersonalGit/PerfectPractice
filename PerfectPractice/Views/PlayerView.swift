@@ -24,12 +24,19 @@ struct PlayerView: View {
                 Spacer()
             }
             .padding(.all)
-            if !player.isRobot{Button(action: {
-                self.player.requestCard()
-            }, label: {
-                Text("Hit Me!")
-                //some issue here
-            }).offset(x: 10, y: 0)}
+            if !player.isRobot{
+                VStack{Button(action: {
+                    self.player.requestCard()
+                }, label: {
+                    Text("Hit Me!")
+                    //some issue here
+                })
+                    Button(action: {
+                        self.player.handleInput(turn: turnPosibilities.stay)
+                    }, label: {
+                        Text("Stay")
+                    })}
+                    .offset(x: 10, y: 0)}
         }
     }
 }

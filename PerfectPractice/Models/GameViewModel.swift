@@ -7,7 +7,6 @@
 //
 
 import Foundation
-
 class GameViewModel: ObservableObject {
     var players = [Player]()
     var dealer = Hand()
@@ -16,13 +15,7 @@ class GameViewModel: ObservableObject {
     var currentCardLocation = 0
     var realPlayer = 1
     var perfectHelper = PerfectStrategyClient()
-    var started = false {
-        didSet {
-            if started {
-                self.startGame()
-            }
-        }
-    }
+
     
     func startGame() {
         print("Game Started")
@@ -36,15 +29,27 @@ class GameViewModel: ObservableObject {
         setUpCardBank()
     }
     
+    func resetGame(){
+        print("reseting game")
+        for each in players {
+            each.hands = []
+            player.isBust = false
+        }
+        self.dealer = Hand()
+        self.cardBank = []
+        setUpCardBank()
+        startGame()
+    }
+    
     func dealInPlayers(){
         for eachPlayer in players{
             var cards = [self.dealCard()]
             cards.append(self.dealCard())
             eachPlayer.dealHand(hand: cards)
         }
-        dealer.addCard(card: dealCard())
         var card = dealCard()
         card.setFaceDown()
+        dealer.addCard(card: dealCard())
         dealer.addCard(card: card)
     }
     
@@ -68,43 +73,48 @@ class GameViewModel: ObservableObject {
         currentCardLocation += 1
         return card
     }
-
+    
     func recontinueGame(){
         var startIndex = realPlayer + 1
         while(startIndex<players.count){
             self.serveNPC(player: players[startIndex])
             startIndex += 1
+            print(players[1])
         }
+        dealer.cards[1].setFaceUp()
     }
     
     func splitPlayer(playerNumber: Int, cardsToSplit: [PlayingCard], playerHandToSplit: Int){
-//        players[playerNumber].cardsDealt[playerHandToSplit] = [cardsToSplit[0]]
-//        players[playerNumber].dealHand(hand: [cardsToSplit[1]])
+        //        players[playerNumber].cardsDealt[playerHandToSplit] = [cardsToSplit[0]]
+        //        players[playerNumber].dealHand(hand: [cardsToSplit[1]])
         return
     }
     func handlePlayerInput(response: turnPosibilities, player: Player){
-                switch response {
-                case turnPosibilities.hit:
-                    player.dealtCard(card: dealCard())
-                case turnPosibilities.stay:
-                    return
-                case .doubleIfPossibleOrHit:
-                    player.dealtCard(card: dealCard())
-                case turnPosibilities.doubleIfPossibleOrStand:
-                    player.dealtCard(card: dealCard())
-                case turnPosibilities.split:
-        //            splitPlayer(playerNumber: playerNumber, cardsToSplit: players[playerNumber].getHand(), playerHandToSplit)
-                    return
-                    
-                case turnPosibilities.perfectStrategy:
-                    return
-                    
-                }
-
+        switch response {
+        case turnPosibilities.hit:
+            player.dealtCard(card: dealCard())
+        case turnPosibilities.stay:
+            if(!player.isRobot){
+                self.recontinueGame()
+            }
+            return
+        case .doubleIfPossibleOrHit:
+            player.dealtCard(card: dealCard())
+        case turnPosibilities.doubleIfPossibleOrStand:
+            player.dealtCard(card: dealCard())
+        case turnPosibilities.split:
+            //            splitPlayer(playerNumber: playerNumber, cardsToSplit: players[playerNumber].getHand(), playerHandToSplit)
+            return
+            
+        case turnPosibilities.perfectStrategy:
+            return
+            
+        }
+        
         if(player.isBust && !player.isRobot){
             self.recontinueGame()
         }
-
+        
         return
     }
     func serveNPC(player: Player){
@@ -116,9 +126,10 @@ class GameViewModel: ObservableObject {
                 let resp = perfectHelper.getResponse(dealerUpcard: dealer.getCard(cardIndex: 0), playerCards: player.hands[player.currentHand].cards)
                 //implement the other stuff breuh 
                 if resp == turnPosibilities.stay || resp == turnPosibilities.split || resp == turnPosibilities.doubleIfPossibleOrHit || resp == turnPosibilities.doubleIfPossibleOrStand{
+                    
                     return
                 }
-            handlePlayerInput(response: resp, player: player)
+                handlePlayerInput(response: resp, player: player)
             }
             
         }

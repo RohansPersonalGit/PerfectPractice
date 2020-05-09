@@ -16,18 +16,29 @@ struct GameView: View {
                 Spacer()
                 HandView.init().environmentObject(self.game.dealer)
                 Spacer()
-                HStack {PlayerView().environmentObject(self.game.players[3]).padding(.all).rotationEffect(Angle.init(degrees: 90)).scaledToFit().scaleEffect(0.7)
+                HStack {PlayerView().environmentObject(self.game.players[0]).padding(.all).rotationEffect(Angle.init(degrees: 90)).scaledToFit().scaleEffect(0.7)
                     Spacer().frame(minWidth: 10, maxWidth: (.infinity))
                     PlayerView().environmentObject(self.game.players[2]).padding(.all).rotationEffect(Angle.init(degrees: -90)).scaledToFit().scaleEffect(0.7)
                 }
                 
                 PlayerView().environmentObject(self.game.players[1]).padding(.all)
-                
-            }
-            .animation(.easeInOut(duration: 2))
+                    .animation(.easeInOut(duration: 2))
+                Button(action: {
+                    self.game.resetGame()
+                }, label: {
+                    VStack(alignment: .trailing){
+                        Text("Reset").offset(x: -90, y: 0)
+                        
+                    }
+                        
+                    
+                    
+                })
+            }.offset(x: 0, y: 8)
+            
         }
         .onAppear{
-           self.game.startGame()
+            self.game.startGame()
         }
     }
 }

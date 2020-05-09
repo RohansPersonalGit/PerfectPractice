@@ -14,7 +14,6 @@ enum turnPosibilities{
 
 class Hand: ObservableObject{
     var id = UUID().uuidString
-    
     @Published var cards=[PlayingCard]()
     var isBust: Bool {
         get {
@@ -40,7 +39,6 @@ class Player: ObservableObject {
     let id:String
     @Published var hands = [Hand]()
     var currentHand = 0
-    let didChange = PassthroughSubject<Player, Never>()
     var currHandValue = 0
     var game: GameViewModel
     var turnNumber: Int = -1
@@ -69,7 +67,6 @@ class Player: ObservableObject {
     
 
     func dealtCard(card: PlayingCard){
-        assert(self.hands.count != 0)
         self.hands[currentHand].addCard(card: card)
         if self.hands[currentHand].isBust {
             if (hands.count == 1){
@@ -101,10 +98,13 @@ class Player: ObservableObject {
     }
     
     func requestCard(){
-//        assert(self.game.started)
-        self.game.handlePlayerInput(response: turnPosibilities.hit, player: self)
+            self.game.handlePlayerInput(response: turnPosibilities.hit, player: self)
+        
     }
     
+    func handleInput(turn: turnPosibilities){
+            self.game.handlePlayerInput(response: turn, player: self)
+    }
     func getCardByHandCardIndex(handIndex: Int, cardIndex: Int) -> PlayingCard{
         return hands[handIndex].cards[cardIndex]
     }

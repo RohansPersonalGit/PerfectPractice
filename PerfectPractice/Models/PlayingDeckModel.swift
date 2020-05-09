@@ -58,6 +58,9 @@ struct PlayingCard: Identifiable {
     mutating func setFaceDown(){
         self.isFaceUp = false
     }
+    mutating func setFaceUp(){
+        self.isFaceUp = true
+    }
 }
 
 

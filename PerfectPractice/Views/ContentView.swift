@@ -21,7 +21,7 @@ struct ContentView: View {
                 Text("Start")
             }
             if self.gameIsStarted {
-                GameView.init().environmentObject(self.game)
+                Group{GameView.init().environmentObject(self.game)}
             }
         }
     }

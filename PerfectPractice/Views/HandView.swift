@@ -24,7 +24,7 @@ struct HandView: View {
         ZStack
             {ForEach(0..<hand.cards.count, id: \.self){
                 card in
-                VStack(alignment: .leading, spacing: 2) {PlayingCardView(rank: self.hand.getCard(cardIndex: card).rankRaw, suit: self.hand.getCard(cardIndex: card).suit ).rotationEffect(Angle.init(degrees: Double(card*10)))
+                VStack(alignment: .leading, spacing: 2) {PlayingCardView(rank: self.hand.getCard(cardIndex: card).rankRaw, suit: self.hand.getCard(cardIndex: card).suit, isFaceUp: self.hand.getCard(cardIndex: card).isFaceUp ).rotationEffect(Angle.init(degrees: Double(card*10)))
                     .offset(x: multiply(index: card, offset: 15), y: multiply(index: card, offset: 40))
                     
                 }
