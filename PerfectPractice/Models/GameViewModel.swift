@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Game: ObservableObject {
+class GameViewModel: ObservableObject {
     var players = [Player]()
     var dealer = Hand()
     var currPlayer = 0
@@ -16,17 +16,24 @@ class Game: ObservableObject {
     var currentCardLocation = 0
     var realPlayer = 1
     var perfectHelper = PerfectStrategyClient()
-    @Published var started = true
+    var started = false {
+        didSet {
+            if started {
+                self.startGame()
+            }
+        }
+    }
     
     func startGame() {
         print("Game Started")
-        setUpCardBank()
         dealInPlayers()
-        self.started = true
         while currPlayer < realPlayer{
             self.serveNPC(player: players[currPlayer])
             currPlayer += 1
         }
+    }
+    init() {
+        setUpCardBank()
     }
     
     func dealInPlayers(){
@@ -36,7 +43,9 @@ class Game: ObservableObject {
             eachPlayer.dealHand(hand: cards)
         }
         dealer.addCard(card: dealCard())
-        dealer.addCard(card: dealCard())
+        var card = dealCard()
+        card.setFaceDown()
+        dealer.addCard(card: card)
     }
     
     func setUpCardBank(){
@@ -105,7 +114,8 @@ class Game: ObservableObject {
             while(!player.hands[player.currentHand].isBust)
             {
                 let resp = perfectHelper.getResponse(dealerUpcard: dealer.getCard(cardIndex: 0), playerCards: player.hands[player.currentHand].cards)
-                if resp == turnPosibilities.stay {
+                //implement the other stuff breuh 
+                if resp == turnPosibilities.stay || resp == turnPosibilities.split || resp == turnPosibilities.doubleIfPossibleOrHit || resp == turnPosibilities.doubleIfPossibleOrStand{
                     return
                 }
             handlePlayerInput(response: resp, player: player)

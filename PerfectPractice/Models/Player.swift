@@ -7,15 +7,15 @@
 //
 
 import Foundation
-
+import Combine
 enum turnPosibilities{
     case hit, stay, split, doubleIfPossibleOrHit, doubleIfPossibleOrStand, perfectStrategy
 }
 
-struct Hand: Identifiable {
-    var id = UUID()
+class Hand: ObservableObject{
+    var id = UUID().uuidString
     
-    var cards=[PlayingCard]()
+    @Published var cards=[PlayingCard]()
     var isBust: Bool {
         get {
             return valueSoFar > 21
@@ -23,7 +23,7 @@ struct Hand: Identifiable {
     }
     var hasAce = false
     var valueSoFar = 0
-    mutating func addCard(card: PlayingCard){
+     func addCard(card: PlayingCard){
         self.cards.append(card)
         self.valueSoFar += card.rankRaw
         if card.rank == Rank.ace {
@@ -31,21 +31,23 @@ struct Hand: Identifiable {
         }
     }
     
-    func getCard(cardIndex: Int)-> PlayingCard{
+     func getCard(cardIndex: Int)-> PlayingCard{
         return cards[cardIndex]
     }
 }
 
 class Player: ObservableObject {
     let id:String
-     var hands = [Hand]()
+    @Published var hands = [Hand]()
     var currentHand = 0
+    let didChange = PassthroughSubject<Player, Never>()
     var currHandValue = 0
-    var game: Game
+    var game: GameViewModel
     var turnNumber: Int = -1
     var isRobot = true
     var isBust = false
-    init(id: String, hands: [Hand]?, game: Game, isRobot: Bool?) {
+    var numhands = 0
+    init(id: String, hands: [Hand]?, game: GameViewModel, isRobot: Bool?) {
         self.id = id
         self.game = game
         self.game.enrollPlayer(player: self)
@@ -67,6 +69,7 @@ class Player: ObservableObject {
     
 
     func dealtCard(card: PlayingCard){
+        assert(self.hands.count != 0)
         self.hands[currentHand].addCard(card: card)
         if self.hands[currentHand].isBust {
             if (hands.count == 1){
@@ -79,11 +82,11 @@ class Player: ObservableObject {
     }
     
     func dealHand(hand: [PlayingCard]){
-        var handToAdd = Hand.init()
-        self.hands.append(handToAdd)
+        self.hands.append(Hand())
         for each in hand{
             self.dealtCard(card: each)
         }
+        numhands += 1
     }
     func getHand() -> Hand{
         return self.hands[currentHand]
@@ -98,6 +101,7 @@ class Player: ObservableObject {
     }
     
     func requestCard(){
+//        assert(self.game.started)
         self.game.handlePlayerInput(response: turnPosibilities.hit, player: self)
     }
     

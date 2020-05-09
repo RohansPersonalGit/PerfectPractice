@@ -20,9 +20,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
         // Create the SwiftUI view that provides the window contents.
-        let game = Game.init()
-_ = [Player(id: "Rohan", hands: nil, game: game, isRobot: true ), Player(id: "Rajesh", hands: nil, game: game, isRobot: true ), Player(id: "Geeta", hands: nil, game: game, isRobot: true ), Player(id: "Ria", hands: nil, game: game, isRobot: true )]
-        game.startGame()
+        let game = GameViewModel.init()
+        _ = [Player(id: "Rohan", hands: nil,game: game, isRobot: true ), Player(id: "Rajesh", hands: nil,game: game, isRobot: false ), Player(id: "Geeta", hands: nil,game: game, isRobot: true ), Player(id: "Ria", hands: nil,game: game, isRobot: true )]
+        
         let contentView = ContentView().environmentObject(game)
 
         // Use a UIHostingController as window root view controller.

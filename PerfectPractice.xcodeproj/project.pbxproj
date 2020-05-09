@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E0CE9B4245BAEE70000282F /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0CE9B3245BAEE70000282F /* GameView.swift */; };
 		9E35D1E32451638D004B8C1E /* PerfectStrategyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E35D1E22451638D004B8C1E /* PerfectStrategyModel.swift */; };
 		9E35D1E524517DD2004B8C1E /* Poppins-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E35D1E424517DD2004B8C1E /* Poppins-SemiBoldItalic.ttf */; };
 		9E35D1E82451820D004B8C1E /* PlayingCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E35D1E72451820D004B8C1E /* PlayingCardView.swift */; };
 		9E3C672B24523FB300494658 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3C672A24523FB300494658 /* Player.swift */; };
-		9E3C672D24524B8200494658 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3C672C24524B8200494658 /* Game.swift */; };
+		9E3C672D24524B8200494658 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3C672C24524B8200494658 /* GameViewModel.swift */; };
 		9E3C672F2452505000494658 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3C672E2452505000494658 /* PlayerView.swift */; };
 		9E5C1BAF2456C4DE0068E049 /* HandView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5C1BAE2456C4DE0068E049 /* HandView.swift */; };
 		9E63D435245137DA000434D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E63D434245137DA000434D6 /* AppDelegate.swift */; };
@@ -35,11 +36,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9E0CE9B3245BAEE70000282F /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		9E35D1E22451638D004B8C1E /* PerfectStrategyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfectStrategyModel.swift; sourceTree = "<group>"; };
 		9E35D1E424517DD2004B8C1E /* Poppins-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		9E35D1E72451820D004B8C1E /* PlayingCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingCardView.swift; sourceTree = "<group>"; };
 		9E3C672A24523FB300494658 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
-		9E3C672C24524B8200494658 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		9E3C672C24524B8200494658 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		9E3C672E2452505000494658 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		9E5C1BAE2456C4DE0068E049 /* HandView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandView.swift; sourceTree = "<group>"; };
 		9E63D431245137DA000434D6 /* PerfectPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PerfectPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,6 +83,7 @@
 				9E35D1E72451820D004B8C1E /* PlayingCardView.swift */,
 				9E3C672E2452505000494658 /* PlayerView.swift */,
 				9E5C1BAE2456C4DE0068E049 /* HandView.swift */,
+				9E0CE9B3245BAEE70000282F /* GameView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -106,12 +109,10 @@
 		9E63D433245137DA000434D6 /* PerfectPractice */ = {
 			isa = PBXGroup;
 			children = (
+				9EA3439F2464DF4B00DE48FC /* SupportingFiles */,
 				9E35D1E6245181EE004B8C1E /* Views */,
 				9E63D448245137E2000434D6 /* Models */,
-				9E63D434245137DA000434D6 /* AppDelegate.swift */,
-				9E63D436245137DA000434D6 /* SceneDelegate.swift */,
 				9E35D1E424517DD2004B8C1E /* Poppins-SemiBoldItalic.ttf */,
-				9E63D43A245137DB000434D6 /* Assets.xcassets */,
 				9E63D43F245137DB000434D6 /* LaunchScreen.storyboard */,
 				9E63D442245137DB000434D6 /* Info.plist */,
 				9E63D43C245137DB000434D6 /* Preview Content */,
@@ -133,9 +134,19 @@
 				9E63D449245137FC000434D6 /* PlayingDeckModel.swift */,
 				9E35D1E22451638D004B8C1E /* PerfectStrategyModel.swift */,
 				9E3C672A24523FB300494658 /* Player.swift */,
-				9E3C672C24524B8200494658 /* Game.swift */,
+				9E3C672C24524B8200494658 /* GameViewModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		9EA3439F2464DF4B00DE48FC /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				9E63D434245137DA000434D6 /* AppDelegate.swift */,
+				9E63D43A245137DB000434D6 /* Assets.xcassets */,
+				9E63D436245137DA000434D6 /* SceneDelegate.swift */,
+			);
+			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 		9ED58A0224525E3200B19ED4 /* PerfectPracticeTests */ = {
@@ -250,10 +261,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E63D435245137DA000434D6 /* AppDelegate.swift in Sources */,
-				9E3C672D24524B8200494658 /* Game.swift in Sources */,
+				9E3C672D24524B8200494658 /* GameViewModel.swift in Sources */,
 				9E35D1E82451820D004B8C1E /* PlayingCardView.swift in Sources */,
 				9E5C1BAF2456C4DE0068E049 /* HandView.swift in Sources */,
 				9E3C672F2452505000494658 /* PlayerView.swift in Sources */,
+				9E0CE9B4245BAEE70000282F /* GameView.swift in Sources */,
 				9E63D44A245137FC000434D6 /* PlayingDeckModel.swift in Sources */,
 				9E3C672B24523FB300494658 /* Player.swift in Sources */,
 				9E35D1E32451638D004B8C1E /* PerfectStrategyModel.swift in Sources */,

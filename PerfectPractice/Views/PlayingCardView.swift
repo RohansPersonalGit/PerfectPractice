@@ -17,6 +17,7 @@ struct PlayingCardView: View {
             Text(String(self.rank)).font(.custom("Poppins-SemiBoldItalic", size: 40)).offset(x: 29, y: -70)
             Text(String(self.rank)).font(.custom("Poppins-SemiBoldItalic", size: 40)).offset(x: 29, y: -70).rotationEffect(Angle.init(degrees: 180))
         }.clipShape(RoundedRectangle(cornerRadius: 25)).overlay(RoundedRectangle(cornerRadius: 25).stroke(Color.black, lineWidth: 2))
+            .animation(.easeInOut(duration: 23))
     }
 }
 

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+// simple class teo represent playing deck, realistically could be  a strcut
 class PlayingDeck {
     let ranks = [1,2,3,4,5,6,7,8,9,10,11,12,13]
     func getShuffledDeck() -> [PlayingCard]{
@@ -20,28 +21,31 @@ class PlayingDeck {
     }
     
 }
-
+//card suits
 enum Suit: String, CaseIterable{
-     case spade="spades", heart="hearts", diamond="diamonds", club="clubs"
+    case spade="spades", heart="hearts", diamond="diamonds", club="clubs"
 }
-
+// card values
 enum Rank: Int, CaseIterable{
     case ace=1, two, three, four, five, six, seven, eight, nine, ten, jack, queen, king
 }
-
+//playing card struct
 struct PlayingCard: Identifiable {
     var id = UUID().uuidString
     let suit:Suit
+    var isFaceUp = true
     let rank: Rank
+    //rawface value as int
     var rankRaw: Int {
         get {
             return getCardValue(rank: self.rank)
         }
     }
+    //print description for debugging
     var description: String {
         return "\(type(of: self))(suit: \(suit), rank: \(rank), id: \(id))"
     }
-    
+    //compute value of a card
     func getCardValue(rank: Rank)-> Int{
         if rank==Rank.jack || rank==Rank.queen || rank==Rank.king{
             return 10
@@ -49,6 +53,10 @@ struct PlayingCard: Identifiable {
         else{
             return rank.rawValue
         }
+    }
+    //alter ui view
+    mutating func setFaceDown(){
+        self.isFaceUp = false
     }
 }
 

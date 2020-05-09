@@ -13,35 +13,28 @@ struct PlayerView: View {
     var body: some View {
         HStack {
             VStack(alignment: .trailing, spacing: 0){
-                ForEach(0..<self.player.hands.count) {
+                ForEach(0..<self.player.hands.count, id: \.self) {
                     index in ZStack {
                         Spacer()
-                        ForEach(0..<self.player.getHandByIndex(index: index).cards.count, id: \.self){
-                            card in
-                            VStack(alignment: .leading, spacing: 2) {PlayingCardView(rank: self.player.getCardByHandCardIndex(handIndex: index,cardIndex: card).rankRaw, suit: self.player.getCardByHandCardIndex(handIndex: index,cardIndex: card).suit ).rotationEffect(Angle.init(degrees: Double(card*10)))
-                            .offset(x: multipe(index: card, offset: 15), y: multipe(index: card, offset: 40))
-                                
-                            }
-                            
-                        }
+                        HandView.init().environmentObject(self.player.getHandByIndex(index: index))
                     }
                 }
-                
                 Spacer().frame(height: 45)
                 Text(self.player.id).bold().font(Font.system(size: 20))
                 Spacer()
             }
             .padding(.all)
-            Button(action: {
+            if !player.isRobot{Button(action: {
                 self.player.requestCard()
             }, label: {
-                Text("Hit ME")
-            }).offset(x: CGFloat(player.hands[0].cards.count*10), y: 0)
+                Text("Hit Me!")
+                //some issue here
+            }).offset(x: 10, y: 0)}
         }
     }
 }
 
-func multipe(index: Int, offset: Int) -> CGFloat {
+func multiply(index: Int, offset: Int) -> CGFloat {
     return CGFloat(index*offset)
 }
 
@@ -52,4 +45,6 @@ struct PlayerView_Previews: PreviewProvider {
     }
 }
 #endif
-var player = Player.init(id: "Player1", hands: [Hand.init()], game: Game.init(), isRobot: true)
+
+
+var player = Player.init(id: "Player1", hands: [setUpHandView()], game: GameViewModel.init(), isRobot: false)
