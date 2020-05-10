@@ -39,6 +39,6 @@ func setUpGame()-> GameViewModel {
     let game = GameViewModel.init()
 
     _ = [Player(id: "Rohan", hands: nil,game: game, isRobot: true ), Player(id: "Rajesh", hands: nil,game: game, isRobot: false ), Player(id: "Geeta", hands: nil,game: game, isRobot: true ), Player(id: "Ria", hands: nil,game: game, isRobot: true )]
-   // game.startGame()
+    game.startGame()
     return game
 }

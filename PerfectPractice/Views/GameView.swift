@@ -14,32 +14,24 @@ struct GameView: View {
         ZStack{Rectangle().foregroundColor(Color.init(red: 0.21, green: 0.40, blue: 0.30, opacity: 1.00)).edgesIgnoringSafeArea(.all)
             VStack {
                 Spacer()
-                HandView.init().environmentObject(self.game.dealer)
-                Spacer()
-                HStack {PlayerView().environmentObject(self.game.players[0]).padding(.all).rotationEffect(Angle.init(degrees: 90)).scaledToFit().scaleEffect(0.7)
+                HandView.init(hand: self.game.dealer).offset(x: 0, y: 0)
+                HStack {PlayerView(player: self.game.players[0]).environmentObject(self.game.players[0]).padding(.all).rotationEffect(Angle.init(degrees: 90)).scaledToFit().scaleEffect(0.7)
                     Spacer().frame(minWidth: 10, maxWidth: (.infinity))
-                    PlayerView().environmentObject(self.game.players[2]).padding(.all).rotationEffect(Angle.init(degrees: -90)).scaledToFit().scaleEffect(0.7)
+                    PlayerView(player: self.game.players[2]).environmentObject(self.game.players[2]).padding(.all).rotationEffect(Angle.init(degrees: -90)).scaledToFit().scaleEffect(0.7)
                 }
-                
-                PlayerView().environmentObject(self.game.players[1]).padding(.all)
+                PlayerView(player: self.game.players[1]).environmentObject(self.game.players[1]).padding(.all)
                     .animation(.easeInOut(duration: 2))
-                Button(action: {
+                HStack(spacing: 0)
+                { Button(action: {
                     self.game.resetGame()
                 }, label: {
-                    VStack(alignment: .trailing){
-                        Text("Reset").offset(x: -90, y: 0)
-                        
-                    }
-                        
+                        Text("Reset")
+                    }).offset(x: -8, y: 0)}.padding(.leading, -100)
                     
-                    
-                })
-            }.offset(x: 0, y: 8)
+            }.animation(.easeInOut(duration: 3))
             
         }
-        .onAppear{
-            self.game.startGame()
-        }
+
     }
 }
 

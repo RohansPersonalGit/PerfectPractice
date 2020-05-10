@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import Combine
 class GameViewModel: ObservableObject {
-    var players = [Player]()
-    var dealer = Hand()
+    @Published var players = [Player]()
+    @Published var dealer = Hand.init()
     var currPlayer = 0
     var cardBank = [PlayingCard]()
     var currentCardLocation = 0
@@ -31,14 +32,18 @@ class GameViewModel: ObservableObject {
     
     func resetGame(){
         print("reseting game")
+        print(players.count)
         for each in players {
-            each.hands = []
+            each.hands = [Hand]()
             player.isBust = false
+            
         }
+        //print(self.dealer.getCard(cardIndex: 0).description)
         self.dealer = Hand()
         self.cardBank = []
         setUpCardBank()
         startGame()
+        print(self.dealer.getCard(cardIndex: 0).description)
     }
     
     func dealInPlayers(){
@@ -46,11 +51,14 @@ class GameViewModel: ObservableObject {
             var cards = [self.dealCard()]
             cards.append(self.dealCard())
             eachPlayer.dealHand(hand: cards)
+            eachPlayer.objectWillChange.send()
+            print(eachPlayer.hands.count)
         }
         var card = dealCard()
         card.setFaceDown()
-        dealer.addCard(card: dealCard())
-        dealer.addCard(card: card)
+        self.dealer.addCard(card: dealCard())
+        self.dealer.addCard(card: card)
+        print(dealer.getCard(cardIndex: 0).description)
     }
     
     func setUpCardBank(){
@@ -82,6 +90,10 @@ class GameViewModel: ObservableObject {
             print(players[1])
         }
         dealer.cards[1].setFaceUp()
+        dealer.objectWillChange.send()
+        while(dealer.valueSoFar<16){
+            dealer.addCard(card: dealCard())
+        }
     }
     
     func splitPlayer(playerNumber: Int, cardsToSplit: [PlayingCard], playerHandToSplit: Int){
@@ -95,6 +107,7 @@ class GameViewModel: ObservableObject {
             player.dealtCard(card: dealCard())
         case turnPosibilities.stay:
             if(!player.isRobot){
+                
                 self.recontinueGame()
             }
             return

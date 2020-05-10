@@ -9,14 +9,14 @@
 import SwiftUI
 
 struct PlayerView: View {
-    @EnvironmentObject var player:Player
+    @ObservedObject var player:Player
     var body: some View {
         HStack {
             VStack(alignment: .trailing, spacing: 0){
                 ForEach(0..<self.player.hands.count, id: \.self) {
                     index in ZStack {
                         Spacer()
-                        HandView.init().environmentObject(self.player.getHandByIndex(index: index))
+                        HandView.init(hand: self.player.hands[index])
                     }
                 }
                 Spacer().frame(height: 45)
@@ -29,7 +29,6 @@ struct PlayerView: View {
                     self.player.requestCard()
                 }, label: {
                     Text("Hit Me!")
-                    //some issue here
                 })
                     Button(action: {
                         self.player.handleInput(turn: turnPosibilities.stay)
@@ -48,7 +47,7 @@ func multiply(index: Int, offset: Int) -> CGFloat {
 #if DEBUG
 struct PlayerView_Previews: PreviewProvider {
     static var previews: some View {
-        PlayerView().environmentObject(player)
+        PlayerView(player: player)
     }
 }
 #endif

@@ -19,25 +19,24 @@ extension AnyTransition {
 }
 
 struct HandView: View {
-    @EnvironmentObject var hand:Hand
+    @ObservedObject var hand:Hand
     var body: some View {
         ZStack
-            {ForEach(0..<hand.cards.count, id: \.self){
+            {ForEach(0..<self.hand.cards.count, id: \.self){
                 card in
-                VStack(alignment: .leading, spacing: 2) {PlayingCardView(rank: self.hand.getCard(cardIndex: card).rankRaw, suit: self.hand.getCard(cardIndex: card).suit, isFaceUp: self.hand.getCard(cardIndex: card).isFaceUp ).rotationEffect(Angle.init(degrees: Double(card*10)))
+                VStack(alignment: .leading, spacing: 2) {PlayingCardView(rank: self.hand.cards[card].rankRaw, suit: self.hand.cards[card].suit, isFaceUp: self.hand.cards[card].isFaceUp ).rotationEffect(Angle.init(degrees: Double(multiply(index: card, offset: 10))))
                     .offset(x: multiply(index: card, offset: 15), y: multiply(index: card, offset: 40))
                     
                 }
-                
                 }
                 
-        }.animation(.easeInOut(duration: 2 ))
+        }
     }
 }
 
 struct HandView_Previews: PreviewProvider {
     static var previews: some View {
-        HandView.init().environmentObject(setUpHandView())
+        HandView.init( hand: setUpHandView())
     }
 }
 func setUpHandView()-> Hand{
