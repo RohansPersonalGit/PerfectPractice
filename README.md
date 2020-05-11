@@ -4,5 +4,5 @@ Huge shoutout to https://github.com/RochesterinNYC/BlackjackStrategyTester for t
 This is my own personal project for learning purposes. 
 
 
-<img width="627" alt="Screen Shot 2020-05-11 at 4 36 14 PM" src="https://user-images.githubusercontent.com/30702959/81622453-e3dcb280-93a5-11ea-9cbc-795d4e6eea32.png">
-<img width="495" alt="Screen Shot 2020-05-11 at 4 36 04 PM" src="https://user-images.githubusercontent.com/30702959/81622487-f951dc80-93a5-11ea-9014-ef14bd66fedd.png">
+<img width="484" alt="Screen Shot 2020-05-11 at 4 40 41 PM" src="https://user-images.githubusercontent.com/30702959/81622577-3027f280-93a6-11ea-87c4-fa1552cdd394.png">
+<img width="500" alt="Screen Shot 2020-05-11 at 4 40 26 PM" src="https://user-images.githubusercontent.com/30702959/81622579-30c08900-93a6-11ea-9eb9-6a1751d1d0fc.png">
