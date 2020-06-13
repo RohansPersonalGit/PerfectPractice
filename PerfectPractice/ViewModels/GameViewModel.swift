@@ -102,6 +102,7 @@ class GameViewModel: ObservableObject {
         return
     }
     func handlePlayerInput(response: turnPosibilities, player: Player){
+        print(player.id + " wants " + String.init(response.hashValue))
         switch response {
         case turnPosibilities.hit:
             player.dealtCard(card: dealCard())
@@ -146,6 +147,7 @@ class GameViewModel: ObservableObject {
             }
             
         }
+        usleep(1004000)
         return
     }
     

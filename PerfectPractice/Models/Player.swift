@@ -14,7 +14,7 @@ enum turnPosibilities{
 
 class Hand: ObservableObject{
     var id = UUID().uuidString
-     var cards=[PlayingCard]()
+     @Published var cards=[PlayingCard]()
     var isBust: Bool {
         get {
             return valueSoFar > 21
@@ -38,7 +38,7 @@ class Hand: ObservableObject{
 class Player: ObservableObject {
     var id:String
     //Has to be published only thing 
-     var hands = [Hand]()
+    @Published var hands = [Hand]()
     var currentHand = 0
     var currHandValue = 0
     var game: GameViewModel
@@ -104,7 +104,6 @@ class Player: ObservableObject {
     }
     
     func handleInput(turn: turnPosibilities){
-        print(self.hands.count)
             self.game.handlePlayerInput(response: turn, player: self)
     }
     func getCardByHandCardIndex(handIndex: Int, cardIndex: Int) -> PlayingCard{

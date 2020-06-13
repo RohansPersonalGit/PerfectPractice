@@ -32,6 +32,7 @@ struct PlayerView: View {
                 })
                     Button(action: {
                         self.player.handleInput(turn: turnPosibilities.stay)
+                        self.player.objectWillChange.send()
                     }, label: {
                         Text("Stay")
                     })}
@@ -47,9 +48,8 @@ func multiply(index: Int, offset: Int) -> CGFloat {
 #if DEBUG
 struct PlayerView_Previews: PreviewProvider {
     static var previews: some View {
-        PlayerView(player: player)
-    }
-}
+        PlayerView.init(player: player)
+    }}
 #endif
 
 

@@ -15,11 +15,11 @@ struct GameView: View {
             VStack {
                 Spacer()
                 HandView.init(hand: self.game.dealer).offset(x: 0, y: 0)
-                HStack {PlayerView(player: self.game.players[0]).environmentObject(self.game.players[0]).padding(.all).rotationEffect(Angle.init(degrees: 90)).scaledToFit().scaleEffect(0.7)
+                HStack {PlayerView.init(player: self.game.players[0]).padding(.all).rotationEffect(Angle.init(degrees: 90)).scaledToFit().scaleEffect(0.7)
                     Spacer().frame(minWidth: 10, maxWidth: (.infinity))
-                    PlayerView(player: self.game.players[2]).environmentObject(self.game.players[2]).padding(.all).rotationEffect(Angle.init(degrees: -90)).scaledToFit().scaleEffect(0.7)
+                    PlayerView.init(player: self.game.players[2]).padding(.all).rotationEffect(Angle.init(degrees: -90)).scaledToFit().scaleEffect(0.7)
                 }
-                PlayerView(player: self.game.players[1]).environmentObject(self.game.players[1]).padding(.all)
+                PlayerView.init(player: self.game.players[1]).padding(.all)
                     .animation(.easeInOut(duration: 2))
                 HStack(spacing: 0)
                 { Button(action: {
