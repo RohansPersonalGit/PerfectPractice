@@ -10,12 +10,16 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var game:GameViewModel
-    @State var gameIsStarted:Bool = true
+    @State var gameIsStarted:Bool = false
 
     var body: some View {
         ZStack{
             Button(action: {
-                self.gameIsStarted.toggle()
+                if(!self.gameIsStarted){
+                    //We need to reposition this 
+                    self.gameIsStarted.toggle()
+                }
+                
             })
             {
                 Text("Start")
