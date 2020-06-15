@@ -20,18 +20,9 @@ extension AnyTransition {
 
 struct HandView: View {
     @ObservedObject var hand:Hand
-    var bust: some View {
-        GeometryReader { geometry in
-            Path { path in
-                path.move(to: CGPoint.init(x: geometry.frame(in: .local).midX, y: CGFloat(geometry.frame(in: .local).midY)))
-                path.addLine(to: CGPoint.init(x: geometry.frame(in: .local).minX, y: geometry.frame(in: .local).minY))
-                path.addLine(to: CGPoint.init(x: geometry.frame(in: .local).minX, y: geometry.frame(in: .local).maxY))
-                path.addLine(to: CGPoint.init(x: geometry.frame(in: .local).maxX, y: geometry.frame(in: .local).maxY))
-                path.addLine(to: CGPoint.init(x: geometry.frame(in: .local).maxX, y: geometry.frame(in: .local).minY))
-            }
-            .fill(Color.red)
-        }
-    }
+    @State var opacityHand = 0.0
+
+    
     var body: some View {
         ZStack
             {ForEach(0..<self.hand.cards.count, id: \.self){
@@ -41,14 +32,14 @@ struct HandView: View {
                     
                 }
                 }
-               
+                
         }
     }
 }
 
 struct HandView_Previews: PreviewProvider {
     static var previews: some View {
-        HandView.init( hand: setUpHandView())
+        HandView.init( hand: (setUpHandView()))
     }
 }
 func setUpHandView()-> Hand{

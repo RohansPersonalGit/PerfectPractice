@@ -26,24 +26,20 @@ class GameViewModel: ObservableObject {
             currPlayer += 1
         }
     }
+    
     init() {
         setUpCardBank()
     }
     
     func resetGame(){
         print("reseting game")
-        print(players.count)
         for each in players {
-            each.hands = [Hand]()
-            player.isBust = false
-            
+            each.resetMe()
         }
-        //print(self.dealer.getCard(cardIndex: 0).description)
         self.dealer = Hand()
         self.cardBank = []
         setUpCardBank()
         startGame()
-        print(self.dealer.getCard(cardIndex: 0).description)
     }
     
     func dealInPlayers(){
@@ -51,14 +47,12 @@ class GameViewModel: ObservableObject {
             var cards = [self.dealCard()]
             cards.append(self.dealCard())
             eachPlayer.dealHand(hand: cards)
-            eachPlayer.objectWillChange.send()
-            print(eachPlayer.hands.count)
         }
         var card = dealCard()
         card.setFaceDown()
         self.dealer.addCard(card: dealCard())
         self.dealer.addCard(card: card)
-        print(dealer.getCard(cardIndex: 0).description)
+        print("Dealer gets" +  card.description + dealer.cards[0].description)
     }
     
     func setUpCardBank(){
@@ -87,10 +81,8 @@ class GameViewModel: ObservableObject {
         while(startIndex<players.count){
             self.serveNPC(player: players[startIndex])
             startIndex += 1
-            print(players[1])
         }
         dealer.cards[1].setFaceUp()
-        dealer.objectWillChange.send()
         while(dealer.valueSoFar<16){
             dealer.addCard(card: dealCard())
         }
@@ -102,7 +94,7 @@ class GameViewModel: ObservableObject {
         return
     }
     func handlePlayerInput(response: turnPosibilities, player: Player){
-        print(player.id + " wants " + String.init(response.hashValue))
+        print(player.id + " wants " + response.rawValue)
         switch response {
         case turnPosibilities.hit:
             player.dealtCard(card: dealCard())
@@ -138,7 +130,8 @@ class GameViewModel: ObservableObject {
             while(!player.hands[player.currentHand].isBust)
             {
                 let resp = perfectHelper.getResponse(dealerUpcard: dealer.getCard(cardIndex: 0), playerCards: player.hands[player.currentHand].cards)
-                //implement the other stuff breuh 
+                //implement the other stuff breuh
+                print(player.id + " wants " + resp.rawValue)
                 if resp == turnPosibilities.stay || resp == turnPosibilities.split || resp == turnPosibilities.doubleIfPossibleOrHit || resp == turnPosibilities.doubleIfPossibleOrStand{
                     
                     return
@@ -147,7 +140,6 @@ class GameViewModel: ObservableObject {
             }
             
         }
-        usleep(1004000)
         return
     }
     

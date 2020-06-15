@@ -18,6 +18,7 @@ struct ContentView: View {
                 if(!self.gameIsStarted){
                     //We need to reposition this 
                     self.gameIsStarted.toggle()
+                    self.game.startGame()
                 }
                 
             })
@@ -25,7 +26,7 @@ struct ContentView: View {
                 Text("Start")
             }
             if self.gameIsStarted {
-                Group{GameView.init().environmentObject(self.game)}
+                Group{GameView.init(game: self.game)}
             }
         }
     }

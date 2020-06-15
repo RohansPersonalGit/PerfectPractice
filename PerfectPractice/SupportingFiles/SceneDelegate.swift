@@ -22,7 +22,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Create the SwiftUI view that provides the window contents.
         let game = GameViewModel.init()
         _ = [Player(id: "Rohan", hands: nil,game: game, isRobot: true ), Player(id: "Rajesh", hands: nil,game: game, isRobot: false ), Player(id: "Geeta", hands: nil,game: game, isRobot: true ), Player(id: "Ria", hands: nil,game: game, isRobot: true )]
-        game.startGame()
         let contentView = ContentView().environmentObject(game)
 
         // Use a UIHostingController as window root view controller.

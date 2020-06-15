@@ -12,6 +12,7 @@ struct PlayingCardView: View {
      var rank: Int
      var suit: Suit
      var isFaceUp: Bool
+    @State var opacityCard = 0.0
     var body: some View {
         ZStack{
             if isFaceUp {
@@ -24,6 +25,7 @@ struct PlayingCardView: View {
                 )).cornerRadius(25)
             }
         }.clipShape(RoundedRectangle(cornerRadius: 25)).overlay(RoundedRectangle(cornerRadius: 25).stroke(Color.black, lineWidth: 2))
+        
     }
 }
 
@@ -34,3 +36,28 @@ struct PlayingCardView_Previews: PreviewProvider {
     }
 }
 #endif
+
+struct testView: View {
+    @State var opacityCircle1 = 0.0
+    @State var opacityCircle2 = 0.0
+
+    var body: some View {
+        VStack {
+            Circle()
+                .opacity(opacityCircle1)
+                .animate(using: Animation.easeInOut(duration: 2).delay(3)) { self.opacityCircle1 = 1.0 }
+            PlayerView(player: player)
+                .opacity(opacityCircle2)
+                .animate(using: Animation.easeInOut(duration: 2).delay(1)) { self.opacityCircle2 = 1.0 }
+        }
+    }
+}
+extension View {
+    func animate(using animation: Animation, _ action: @escaping () -> Void) -> some View {
+        return onAppear {
+            withAnimation(animation) {
+                action()
+            }
+        }
+    }
+}

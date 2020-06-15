@@ -9,33 +9,59 @@
 import SwiftUI
 
 struct PlayerView: View {
+    //changing this to state causes issues 
     @ObservedObject var player:Player
+    var bust: some View {
+        GeometryReader { geometry in
+            Path { path in
+                path.move(to: CGPoint.init(x: geometry.frame(in: .local).midX, y: CGFloat(geometry.frame(in: .local).midY)/2))
+                path.addLine(to: CGPoint.init(x: geometry.frame(in: .local).minX, y: geometry.frame(in: .local).minY))
+                path.move(to: CGPoint.init(x: geometry.frame(in: .local).midX, y: CGFloat(geometry.frame(in: .local).midY)/2))
+                path.addLine(to: CGPoint.init(x: geometry.frame(in: .local).minX, y: (geometry.frame(in: .local).minY) + 180))
+                path.move(to: CGPoint.init(x: geometry.frame(in: .local).midX, y: CGFloat(geometry.frame(in: .local).midY)/2))
+                path.addLine(to: CGPoint.init(x: geometry.frame(in: .local).maxX, y: (geometry.frame(in: .local).minY) + 180))
+                path.move(to: CGPoint.init(x: geometry.frame(in: .local).midX, y: CGFloat(geometry.frame(in: .local).midY)/2))
+                path.addLine(to: CGPoint.init(x: geometry.frame(in: .local).maxX, y: geometry.frame(in: .local).minY))
+            }
+            .stroke(Color.red,lineWidth: 10)
+            
+        }
+    }
     var body: some View {
         HStack {
-            VStack(alignment: .trailing, spacing: 0){
-                ForEach(0..<self.player.hands.count, id: \.self) {
-                    index in ZStack {
-                        Spacer()
-                        HandView.init(hand: self.player.hands[index])
+            ZStack {
+                VStack(alignment: .trailing, spacing: 0){
+                    ForEach(0..<self.player.hands.count, id: \.self) {
+                        index in ZStack {
+                            Spacer()
+                            HandView.init(hand: self.player.hands[index])
+                        }
                     }
+                    Spacer().frame(height: 45)
+                    Text(self.player.id).bold().font(Font.system(size: 20))
+                    Spacer()
                 }
-                Spacer().frame(height: 45)
-                Text(self.player.id).bold().font(Font.system(size: 20))
-                Spacer()
+                .padding(.all)
+                if self.player.isBust{
+                    self.bust
+                }
             }
-            .padding(.all)
             if !player.isRobot{
                 VStack{Button(action: {
-                    self.player.requestCard()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+                        self.player.requestCard()
+                    }
                 }, label: {
                     Text("Hit Me!")
                 })
-                    Button(action: {
-                        self.player.handleInput(turn: turnPosibilities.stay)
-                        self.player.objectWillChange.send()
-                    }, label: {
-                        Text("Stay")
-                    })}
+                Button(action: {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+                        self.player.stay()
+                    }
+                }, label: {
+                    Text("Stay!")
+                })
+            }
                     .offset(x: 10, y: 0)}
         }
     }
